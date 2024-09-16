@@ -2,8 +2,10 @@ FROM node:20
 
 COPY . /app
 
-RUN npm ci
+RUN npm -g insall pnpm
 
-RUN npm run build
+RUN pnpm ci
 
-CMD [ "npm start" ]
+RUN pnpm build
+
+CMD [ "pnpm start" ]
