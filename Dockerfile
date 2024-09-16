@@ -1,11 +1,10 @@
-FROM node:20
+FROM node:20-alpine
 
-COPY . /app
+WORKDIR /app
+COPY . .
 
-RUN npm -g insall pnpm
-
-RUN pnpm ci
-
+RUN npm install -g pnpm
+RUN pnpm install
 RUN pnpm build
 
-CMD [ "pnpm start" ]
+CMD [ "pnpm", "start" ]
